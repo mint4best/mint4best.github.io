@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 페이지</title>
+    <script>
+        // 로그인 상태 확인
+        window.onload = function() {
+            const isLoggedIn = localStorage.getItem("loggedIn");
+            if (isLoggedIn !== "true") {
+                alert("로그인 후 접속 가능합니다.");
+                window.location.href = "index.html"; // 로그인 페이지(index.html)로 이동
+            }
+        };
+
+        function logout() {
+            localStorage.removeItem("loggedIn"); // 로그인 상태 초기화
+            window.location.href = "index.html"; // 로그아웃 후 index.html로 이동
+        }
+    </script>
+</head>
+<body>
+    <h1>메인 페이지</h1>
+    <p>로그인 성공! 메인 페이지에 접속했습니다.</p>
+    <button onclick="logout()">로그아웃</button>
+</body>
+</html>
